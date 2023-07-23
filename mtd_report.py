@@ -74,8 +74,7 @@ report_content = f"""<section>
     </section>"""
 
 # GPT-4 Auto Insights
-from main import html_content as report
-from main import last_month_html_content as last_month
+from draft.main import html_content as report
 import openai
 
 # ❕put this in the enviornment
@@ -109,7 +108,7 @@ def improve_readability(model, message):
             {"role": "system",
              "content": "You are a readability expert that formats messages in HTML to make them easier to read. "},
             {"role": "user",
-             "content": f"Please space out the below content and shorten it to 5 setences max, so it's easier to read, then provide it as HTML:{message}" }
+             "content": f"Please space out the below content and shorten it to 5 setences max, so it's easier to read, then provide it as HTML:{message}. \n\nNote: Do not use a heading tag larger than an <h4> " }
         ],
         temperature=0.75,
         max_tokens=300,  # Adjust as needed
