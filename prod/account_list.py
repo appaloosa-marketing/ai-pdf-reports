@@ -22,7 +22,7 @@ client_list = []
 
 shoc = {
     "name": "SHOC",
-    "env": "env/shoc.env",
+    "env": "../env/shoc.env",
     "cloudfronturl": "https://d3ofvee3mvq26s.cloudfront.net",
     "distribution": "E21RN14Y6OXFKP",
     "fb_amazon_ads": False
@@ -32,7 +32,7 @@ client_list.append(Account(**shoc))
 
 doodlegnome = {
     "name": "Doodle Gnome",
-    "env": "env/doodlegnome.env",
+    "env": "../env/doodlegnome.env",
     "cloudfronturl": "https://d3gdwmfbv9x98x.cloudfront.net",
     "distribution": "E2ATBDXK9KCOPM",
     "fb_amazon_ads": True
@@ -42,7 +42,7 @@ client_list.append(Account(**doodlegnome))
 
 splash = {
     "name": "Splash",
-    "env": "env/splash.env",
+    "env": "../env/splash.env",
     "cloudfronturl": "https://d3m56nydho1zwc.cloudfront.net",
     "distribution": "E26RP64T1ZNC14",
     "fb_amazon_ads": False
