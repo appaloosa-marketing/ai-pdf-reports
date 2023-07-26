@@ -98,39 +98,58 @@ def for_report():
 
 
     # AMAZON MTD SALES #
-    sellercentral_mtd['Platform'] = 'Amazon USA'
-    sellercentral_mtd.rename(columns={"unitCount":"Units Ordered","orderCount":"Orders","Total Sales":"Revenue"}, inplace=True)
-    sellercentral_mtd.drop(columns={"month"}, inplace=True)
-    sellercentral_mtd = sellercentral_mtd[['Platform', 'Revenue']]
-    #sellercentral_mtd = sellercentral_mtd[['Platform', 'Revenue', 'Orders', 'Units Ordered', 'Avg. Unit Price']]
+    if sellercentral_mtd.empty:
+        pass
+    else:
+        sellercentral_mtd['Platform'] = 'Amazon USA'
+        sellercentral_mtd.rename(columns={"unitCount":"Units Ordered","orderCount":"Orders","Total Sales":"Revenue"}, inplace=True)
+        sellercentral_mtd.drop(columns={"month"}, inplace=True)
+        sellercentral_mtd = sellercentral_mtd[['Platform', 'Revenue']]
+        #sellercentral_mtd = sellercentral_mtd[['Platform', 'Revenue', 'Orders', 'Units Ordered', 'Avg. Unit Price']]
 
 
 
 
     # SHOPIFY MTD SALES#
-    total_revenue = shopify_report['totalPrice'].astype(float).sum()
-    total_tax = shopify_report['totalTax'].astype(float).sum()
-    total_refund = shopify_report['totalRefunded'].astype(float).sum()
-    total_revenue_adjusted = total_revenue - total_tax - total_refund
+    if shopify_report.empty:
+        mtd_sales = shopify_report
+        pass
+    else:
+        total_revenue = shopify_report['totalPrice'].astype(float).sum()
+        total_tax = shopify_report['totalTax'].astype(float).sum()
+        total_refund = shopify_report['totalRefunded'].astype(float).sum()
+        total_revenue_adjusted = total_revenue - total_tax - total_refund
 
-    data = {'Platform': ['Shopify'], 'Revenue': [total_revenue_adjusted]}
+        data = {'Platform': ['Shopify'], 'Revenue': [total_revenue_adjusted]}
 
 
-    shopify_mtd = pd.DataFrame(data)
+        shopify_mtd = pd.DataFrame(data)
 
-    mtd_sales = pd.concat([sellercentral_mtd, shopify_mtd], axis=0).fillna('')
+        mtd_sales = pd.concat([sellercentral_mtd, shopify_mtd], axis=0).fillna('')
     #mtd_sales[['Revenue']] = mtd_sales[['Revenue']].applymap(lambda x: f'${x:,.2f}')
 
-    sales_df = mtd_sales.copy()
-    sales_df.set_index('Platform', inplace=True)
+    try:
+        sales_df = mtd_sales.copy()
+        sales_df.set_index('Platform', inplace=True)
 
-    shopify_total_sales = sales_df.loc['Shopify', 'Revenue']
-    amazon_total_sales = sales_df.loc['Amazon USA', 'Revenue']
+        if 'Shopify' in sales_df['Platform'].values:
+            shopify_total_sales = sales_df.loc['Shopify', 'Revenue']
+        else:
+            print('Shopify data not available.')
+
+        if 'Amazon' in sales_df['Platform'].values:
+            amazon_total_sales = sales_df.loc['Amazon USA', 'Revenue']
+        else:
+            print('Amazon data not available.')
+
+    except:
+        pass
+        print('Something is wrong.')
 
     # Combined seller central & shopify sales
     #print(mtd_sales)
 
-
+   ### ❕keep on going with the try except blocks. ###
 
     ### ADVERTISING ###
 
@@ -173,7 +192,7 @@ def for_report():
     except:
         print('No data for meta_conversions_mtd.')
 
-    """ Meta Conversions MTD """
+    ## Meta Conversions MTD
     # print(meta_conversions_mtd)
 
     # Shopify - Google Ads Performance MTD #
@@ -202,7 +221,7 @@ def for_report():
         except:
             'Something wrong (Line 92)'
 
-    """Google Conversions MTD """
+    ## Google Conversions MTD
     # print(google_conversions_mtd)
 
     try:
@@ -237,7 +256,7 @@ def for_report():
     #amazon_df[['Cost', 'Revenue']] = amazon_df[['Cost', 'Revenue']].applymap(lambda x: f'${x:,.2f}')
     # ready #
 
-    """Combined advertising on Amazon"""
+    ## Combined advertising on Amazon
     #print(amazon_df)
     # Shopify Advertising Spend
 
@@ -258,7 +277,7 @@ def for_report():
     # Shopify Advertising Spend
     shopify_spend = shopify_df2.loc['TOTAL', 'Cost']
 
-    """Combined advertising on Shopify"""
+    ## Combined advertising on Shopify
     #print(shopify_df)
 
 
@@ -291,6 +310,3 @@ def for_report():
     tacos_df[["Total Sales", "Spend"]] = tacos_df[["Total Sales", "Spend"]].applymap(lambda x: '${:,.2f}'.format(x))
 
     return amazon_df, shopify_df, tacos_df, engagement_df
-
-#print(tacos_df)
-#print(engagement_df)
