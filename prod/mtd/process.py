@@ -60,28 +60,42 @@ def for_report():
     google_conversions_mtd = os.getenv("GOOGLE_CONVERSIONS_MTD")
 
 
+    report_links = [sellercentral_monthly,meta_conversions_mtd,amazon_meta_conversions_mtd,sellercentral_mtd,amazonads_mtd,last_month_meta_df,google_conversions_mtd,shopify_report]
+
     #DATA
     try:
         sellercentral_monthly = pd.read_csv(sellercentral_monthly)
-    except:
-        print('sellercentral_monthly df is empty.')
-
+    except Exception as e:
+        print(f'sellercentral_monthly is not available. Error: {str(e)}')
     try:
         meta_conversions_mtd = pd.read_csv(meta_conversions_mtd)
-    except:
-        print('meta_conversions_mtd is empty or does not exist')
-
+    except Exception as e:
+        print(f'meta_conversions_mtd is not available. Error: {str(e)}')
     try:
         amazon_meta_conversions_mtd = pd.read_csv(amazon_meta_conversions_mtd)
-    except:
-        print('amazon_meta_conversions_mtd is empty or does not exist')
+    except Exception as e:
+        print(f'amazon_meta_conversions_mtd is not available. Error: {str(e)}')
+    try:
+        sellercentral_mtd = pd.read_csv(sellercentral_mtd)
+    except Exception as e:
+        print(f'sellercentral_mtd is not available. Error: {str(e)}')
+    try:
+        amazonads_mtd = pd.read_csv(amazonads_mtd)
+    except Exception as e:
+        print(f'amazonads_mtd is not available. Error: {str(e)}')
+    try:
+        last_month_meta_df = pd.read_csv(last_month_meta_df)
+    except Exception as e:
+        print(f'last_month_meta_df is not available. Error: {str(e)}')
+    try:
+        google_conversions_mtd = pd.read_csv(google_conversions_mtd)
+    except Exception as e:
+        print(f'google_conversions_mtd is not available. Error: {str(e)}')
+    try:
+        shopify_report = pd.read_csv(shopify_report)
+    except Exception as e:
+        print(f'shopify_report is not available. Error: {str(e)}')
 
-
-    sellercentral_mtd = pd.read_csv(sellercentral_mtd)
-    amazonads_mtd = pd.read_csv(amazonads_mtd)
-    last_month_meta_df = pd.read_csv(last_month_meta_df)
-    google_conversions_mtd = pd.read_csv(google_conversions_mtd)
-    shopify_report = pd.read_csv(shopify_report)
 
     # AMAZON MTD SALES #
     sellercentral_mtd['Platform'] = 'Amazon USA'
