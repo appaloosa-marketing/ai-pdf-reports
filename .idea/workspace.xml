@@ -4,30 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82742051-44ca-406b-b08f-eccf0849376e" name="Changes" comment="❕keep on going with the try except blocks.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/reports.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/draft/fig1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/draft/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mtd_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mtd_report.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/account_list.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/draft.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/env/doodlegnome.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/env/dummy.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/env/shoc.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/env/splash.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/env/trevo.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/mtd/pdf_report.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod/mtd/process.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streamlit/pages/logo.py" beforeDir="false" />
+    <list default="true" id="82742051-44ca-406b-b08f-eccf0849376e" name="Changes" comment="...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +262,7 @@
       <workItem from="1690465207563" duration="241000" />
       <workItem from="1690465484526" duration="3000" />
       <workItem from="1690465569726" duration="186000" />
-      <workItem from="1690465871232" duration="6410000" />
+      <workItem from="1690465871232" duration="11733000" />
     </task>
     <task id="LOCAL-00001" summary="first git test...">
       <created>1690147934857</created>
@@ -334,7 +313,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690403141725</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="...">
+      <created>1690479534582</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690479534582</updated>
+    </task>
+    <task id="LOCAL-00009" summary="...">
+      <created>1690479740889</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690479740889</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +352,8 @@
     <MESSAGE value="mtd_report() func generates a dummy report using a .env file from the env directory &amp; scripts from the mtd directory. &#10;&#10;new account_list with env locations, so it will be easy to loop through clients and print reports with their env file&#10;&#10;Just need to make sure there's an amazon_meta_conversions_mtd df ,then troubleshoot production!" />
     <MESSAGE value="Started try-except blocks to allow for any combination of reports, i.e. meta-to-amazon, just google, google and meta." />
     <MESSAGE value="❕keep on going with the try except blocks." />
-    <option name="LAST_COMMIT_MESSAGE" value="❕keep on going with the try except blocks." />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/reports$mtd_data.coverage" NAME="mtd_data Coverage Results" MODIFIED="1690147225709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
